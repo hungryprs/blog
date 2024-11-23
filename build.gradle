@@ -33,22 +33,21 @@ dependencies {
 	// Testing Dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-	// Swagger Dependencies
-	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0' // OpenAPI Swagger UI
-	implementation 'io.springfox:springfox-swagger2:2.9.2'  // Swagger 2 integration
-	implementation 'io.springfox:springfox-swagger-ui:2.10.0' // Swagger UI for Swagger 2
+	// Swagger Dependencies (SpringDoc preferred for Spring Boot 3.x)
+	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
 
-
-	// Lombok (compile-time annotations)
+	// Lombok for easier coding
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	// Spring Boot Security (already included above but added for clarity)
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	// Spring Security (already included in Spring Boot Starter Security, added for clarity)
+	implementation 'org.springframework.security:spring-security-core:6.1.4'
+	implementation 'org.springframework.security:spring-security-web:6.1.4'
+	implementation 'org.springframework.security:spring-security-config:6.1.4'
 
-
+	// Jakarta Servlet API for compatibility
+	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 }
 
 tasks.named('test') {
