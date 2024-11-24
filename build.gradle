@@ -9,12 +9,12 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(21) // Ensure compatibility with JDK 21
 	}
 }
 
 repositories {
-	mavenCentral()
+	mavenCentral() // Primary repository for dependencies
 }
 
 dependencies {
@@ -26,29 +26,19 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	// Springdoc OpenAPI (Swagger UI)
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0' // Use springdoc instead of springfox
+
 	// Database Dependencies
-	runtimeOnly 'org.postgresql:postgresql' // PostgreSQL driver
-	runtimeOnly 'com.mysql:mysql-connector-j' // MySQL connector (optional, remove if not needed)
+	runtimeOnly 'org.postgresql:postgresql'
 
 	// Testing Dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-	// Swagger Dependencies
-	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0' // OpenAPI Swagger UI
-	implementation 'io.springfox:springfox-swagger2:2.9.2'  // Swagger 2 integration
-	implementation 'io.springfox:springfox-swagger-ui:2.10.0' // Swagger UI for Swagger 2
-
-
-	// Lombok (compile-time annotations)
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-
-	// Spring Boot Security (already included above but added for clarity)
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-
-
 }
 
 tasks.named('test') {
